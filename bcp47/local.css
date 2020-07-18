@@ -1,0 +1,42 @@
+[lang=zh-hans] {
+  font-family: 'PingFang SC', 'Noto Sans CJK SC', 'Heiti SC', 'DengXian', 'Microsoft YaHei', Helvetica, Segoe UI, Arial, sans-serif;
+}
+
+.tag {
+  font-weight: 700;
+}
+
+.subtag {
+  font-weight: normal;
+}
+
+/* .translator-note {
+  color: darkgreen;
+  background: #ef9;
+} */
+
+.uname {
+  text-transform: uppercase;
+  font-size: 85%;
+  letter-spacing:0.03em;
+}
+
+.todo {
+  color: #900;
+  background-color: #FFC;
+}
+
+table.glossary {
+  border-collapse: collapse;
+  border: 2px black solid;
+}
+
+table.glossary td {
+  border-left: 1px solid rgba(17, 101, 145, 0.4);
+  border-right: 1px solid rgba(17, 101, 145, 0.4);
+  padding: 0.5em;
+}
+table.glossary tbody tr:nth-child(2n-1) {
+  background-color: #fafafa;
+  transition: all .125s ease-in-out;
+}

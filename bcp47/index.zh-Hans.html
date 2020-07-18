@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-hans" style="background: white;">
+<head>
+<meta charset="utf-8" />
+<title>BCP 47</title>
+
+<link rel="stylesheet" href="./local.css" />
+
+<script async class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+
+<script class="remove">
+var respecConfig = {
+  specStatus: "unofficial",
+  license: "cc-by",
+  editors: [
+    {
+          name: "Addison Phillips",
+          company: "Amazon.com"
+    },
+    {
+          name: "Mark Davis",
+          company: "Google"
+    },
+    {
+          name: "薛富侨（简体中文翻译）"
+    },
+        ],
+        edDraftURI: "https://xfq.github.io/translation/bcp47/index.zh-Hans.html",
+        shortName: "bcp47-zh-hans",
+        wg: "Network Working Group",
+
+        localBiblio:  {
+    "SpecialCasing": {
+	    title:    "Unicode Character Database, Special Casing Properties",
+	    href:     "https://unicode.org/Public/UNIDATA/SpecialCasing.txt",
+	    publisher: "The Unicode Consoritum"
+      }
+    }
+
+};
+</script>
+</head>
+
+<body>
+<!-- TODO: remove the TODOs -->
+<h1 class="title p-name" id="title">BCP 47</h1>
+<div id="abstract">
+  <p>本文档分为两部分。</p>
+  <p>第一部分是《识别语言的标签》，描述了在需要标明信息对象中使用的语言时使用的语言标签的结构、内容、构造和语义。另外，本文档还描述了如何注册在语言标签中使用的值以及如何创建用户定义的扩展以进行私有交换。</p>
+  <p>第二部分是《语言标签的匹配》，介绍了一种语法，称为“语言范围”，用于编写用户的语言首选项列表。本部分还描述了将这些功能与语言标签进行比较和匹配的不同机制。匹配机制有两种：过滤和查找。过滤会生成一组（可能为空）语言标签，而查找会生成一个语言标签。可能的应用包括语言协商机制或内容选择机制。</p>
+  <p>英文原版请见：<a href="https://tools.ietf.org/html/bcp47">https://tools.ietf.org/html/bcp47</a></p>
+</div>
+
+<div id="sotd">
+  <p>本文档为Internet社区指定了Internet最佳实践，希望得到公众讨论和提出改进建议。本文档对分发没有限制。</p>
+  <p>本文档的中文翻译许可证为<a href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a>。</p>
+  <p>如果您对译文或原文有任何建议和反馈，请把您的想法整理并发布在<a href="https://github.com/xfq/translation/issues">GitHub issues</a>中。</p>
+</div>
+
+<section id="tags-for-identifying-languages">
+  <h2>
+    识别语言的标签 (Tags for Identifying Languages, RFC 5646)
+  </h2>
+
+  <section id="1-1">
+    <h3>绪论</h3>
+
+    <p>在我们的星球上，人类从过去到现在使用着多种语言。人们会因为很多理由想要识别展示或请求信息时使用的语言。</p>
+    
+    <p>为了使程序应用适当的处理算法，很多时候需要知道信息项的语言或用户的语言首选项。例如，用户可以通过Web浏览器中的语言首选项来访问正确的网页。语言信息还可以用于在工具（例如字典）中进行语言选择，以帮助处理或理解不同语言的内容。了解有关某些信息内容所使用的特定语言可能对某些类型的信息处理很有用，甚至是必需的，例如拼写检查、语音合成、盲文转录以及高质量的打印。</p>
+
+    <p>表明使用的语言的一种方法是通过用标识符或“标签”标记信息。这些标签还可以用于在选择信息内容时指定用户的首选项，或标记内容和相关资源的其他属性。</p>
+
+    <p>有时，语言标签用于标出内容的额外语言属性。例如，标明文档或资源中使用的方言、书写系统或正写法的特定信息，可以使用户以他们可以理解的形式获得信息，而在处理信息或将信息以适当的形式或风格呈现给用户时也可能很重要。</p>
+
+    <p>该文档包含了一个标识符机制（也就是语言标签）和一个用于构建标签中的值的注册功能，此外还定义了一种创建私有值和未来扩展的机制。</p>
+
+    <p>本文档取代了 [[RFC4646]]，而 [[RFC4646]] 取代了 [[RFC3066]]，[[RFC3066]] 又取代了 [[RFC1766]]。本章与 [[RFC4647]]（<span class="translator-note">译注：即[[[#matching-of-language-tags]]]</span>）结合在一起，构成了BCP 47。有关本文档中所做的更改，请参见<i class="todo">TODO</i>。</p>
+
+    <p>本文档中的关键词“必须”（MUST, REQUIRED, SHALL）、“绝不”（MUST NOT, SHALL NOT）、“应当”（SHOULD）、“不应”（SHOULD NOT）、“推荐”（RECOMMENDED）、“可以”（MAY）和“可选”（OPTIONAL）按照 [[RFC2119]] 中所述进行解释。</p>
+  </section>
+
+  <section id="1-2">
+    <h3>语言标签</h3>
+
+    <p>语言标签用于帮助识别语言，包括口语、书面语、手语等方式，以进行交流。这其中包括人工语言，但不包括并非主要用于人类交流的语言，例如编程语言。</p>
+
+    <section>
+      <h4>语法</h4>
+
+      <p>语言标签由一个或多个“子标签”的序列组成，每个子标签都会细化或缩小整个标签所表示的语言范围。子标签是一个由字母和数字组成的序列，被连字符（“-”，[[Unicode]] <span class="uname">U+002D</span>）与语言标签中的其他子标签区分开来。</p>
+
+      <p>
+        子标签有不同类型，每种子标签都可以通过长度、在语言标签中的位置和子标签本身的内容中进行区分：每个子标签的类型可以只由这些特性来识别。即使没有识别出特定的子标签值，也可以从子标签中提取出一些语义信息。因此，语言标签处理器没有有效标签或子标签的列表（即IANA语言子标签注册中心的某个版本的副本）也可执行常见的搜索和匹配操作。唯一的例外是在下面的推导规则<code>regular</code>和<code>irregular</code>中列出的旧版标签。这些标签是在 [[RFC3066]] 下注册的，并且是一个永远不会改变的固定列表。
+      </p>
+
+      <p>
+        用 ABNF [[RFC5234]] 表示的语言标签的语法如下：
+      </p>
+
+<pre class="abnf" title="语言标签ABNF">
+Language-Tag  = langtag             ; 普通的语言标签
+       / privateuse          ; 私用标签
+       / grandfathered       ; 旧版标签
+
+langtag       = language
+           ["-" script]
+           ["-" region]
+           *("-" variant)
+           *("-" extension)
+           ["-" privateuse]
+
+language      = 2*3ALPHA            ; 最短的 ISO 639 代码
+         ["-" extlang]       ; 有时后面有
+                      ; 扩展语言子标签
+        / 4ALPHA              ; 或保留以备将来使用
+        / 5*8ALPHA            ; 或为注册的语言子标签
+
+extlang       = 3ALPHA              ; 选定的 ISO 639 代码
+           *2("-" 3ALPHA)      ; 永久保留
+
+script        = 4ALPHA              ; ISO 15924 代码
+
+region        = 2ALPHA              ; ISO 3166-1 代码
+           / 3DIGIT              ; UN M.49 代码
+
+variant       = 5*8alphanum         ; 已注册的变种
+          / (DIGIT 3alphanum)
+
+extension     = singleton 1*("-" (2*8alphanum))
+
+                      ; 单个字母或数字
+                      ; "x" 保留私用
+singleton     = DIGIT               ; 0 - 9
+            / %x41-57             ; A - W
+            / %x59-5A             ; Y - Z
+            / %x61-77             ; a - w
+            / %x79-7A             ; y - z
+
+privateuse    = "x" 1*("-" (1*8alphanum))
+
+grandfathered = irregular           ; 已注册的非冗余标签
+       / regular             ; 在 RFC 3066 时期
+
+irregular     = "en-GB-oed"         ; 不规则标签与langtag推导规则不匹配，
+          / "i-ami"             ; 不被认为是“符合语法规则的”。
+          / "i-bnn"             ; 虽然不规则标签签是有效的，
+          / "i-default"         ; 但是其中的大多数标签已不推荐使用，
+          / "i-enochian"        ; 推荐使用更现代的子标签或子标签组合
+          / "i-hak"
+          / "i-klingon"
+          / "i-lux"
+          / "i-mingo"
+          / "i-navajo"
+          / "i-pwn"
+          / "i-tao"
+          / "i-tay"
+          / "i-tsu"
+          / "sgn-BE-FR"
+          / "sgn-BE-NL"
+          / "sgn-CH-DE"
+
+regular       = "art-lojban"        ; 这些标签与langtag推导规则相匹配，
+          / "cel-gaulish"       ; 但是它们的子标签不是扩展语言或变体子标签：
+          / "no-bok"            ; 它们的含义由它们的注册来定义，
+          / "no-nyn"            ; 为了支持更现代的子标签或子标签序列，
+          / "zh-guoyu"          ; 不建议使用所有这些子标签
+          / "zh-hakka"
+          / "zh-min"
+          / "zh-min-nan"
+          / "zh-xiang"
+
+alphanum      = (ALPHA / DIGIT)     ; 字母和数字
+</pre>
+
+<p>
+  有关语言标签的示例，请参见<i class="todo">TODO</i>
+</p>
+
+<p>
+  所有子标签的最大长度为8个字符，语言标签中不允许使用空格。ABNF中的<code>variant</code>推导规则有一个微妙之处：以数字开头的变体的最小长度为4个字符，而以字母开头的变体的最小长度为5个字符。
+</p>
+
+<p>
+  尽管 [[RFC5234]] 使用的是8位数据（octets），本文档中描述的语言标签使用 US-ASCII [[ISO646]] 字符集的中的字符组成的序列。语言标签可（MAY）用于使用其他编码的文档和应用程序中，只要它们包含 US-ASCII 字符集的相关部分即可。使用 [[Unicode]] 的 UTF-16LE [[RFC2781]] 编码的 XML 文档就是一个例子。
+</p>
+
+<section>
+  <h5>语言标签的格式</h5>
+
+  <p>
+    在任何时候，语言标签及其子标签（包括私用和扩展）都不应区分大小写：某些子标签习惯上使用大写，但不得（MUST NOT）带有任何语义。
+  </p>
+
+  <p>
+    因此，标签<code class="tag">mn-Cyrl-MN</code>与<code class="tag">MN-cYRL-mn</code>或<code class="tag">mN-cYrL-Mn</code>（或任何其他组合）没有区别，并且这些变体均传达相同的含义：在蒙古使用的用西里尔字母写成的蒙古语。
+  </p>
+
+  <p>
+    ABNF语法也不区分大写和小写：A至Z范围内的大写US-ASCII字母等同并映射到a至Z范围内的US-ASCII小写字母。因此，标签<code class="tag">I-AMI</code>被认为等同于<code>irregular</code>推导规则中的值<code class="tag">i-ami</code>。
+  </p>
+
+  <p>
+    尽管区分大小写在语言标签中不包含语义，格式一致的和语言标签将对用户有所帮助。建议（RECOMMENDED）将注册中心中子标签的格式作为在语言标签中使用的形式。此格式通常和对应的ISO标准中约定的格式相同。
+  </p>
+
+  <p>
+    这些约定包括：
+  </p>
+
+  <ul>
+    <li> [[ISO-639-1]] 建议使用小写字母编写语言代码（蒙古语<code class="subtag">mn</code>）。
+    <li> [[ISO15924]] 建议使用首字母大写、其他字母小写的形式编写文字代码（西里尔字母<code class="subtag">Cyrl</code>）。
+    <li> [[ISO3166-1]] 建议将国家代码大写（蒙古<code class="subtag">MN</code>）。
+  </ul>
+
+  <p>
+    本文档的实现无需访问注册中心即可重现此格式，规则如下：所有子标签，包括扩展和私用子标签，均使用小写字母，但有两个例外。这两个例外是：不出现在标签的开头以及单字符子标签之后的2个字母和4个字母的子标签。这样的2个字母的子标签都是大写的（例如在标签<code class="tag">en-CA-x-ca</code>或<code class="tag">sgn-BE-FR</code>中），而4个字母的子标签是首字母大写的（例如在标签<code class="tag">az-Latn-x-latn</code>）。
+  </p>
+
+  <p>
+    注意：在某些语言环境中，ASCII字母的大小写转换（除非仔细处理）有时会产生非ASCII字符值。Unicode字符数据库文件“SpecialCasing.txt” [[SpecialCasing]] 定义了导致此问题的特定情况。尤其是土耳其语和阿塞拜疆语中的字母“i”（<span class="uname">U+0069</span>）的大写为<span class="uname">U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE</span>。实现者应（SHOULD）实现一个与语言环境无关的大小写操作，以确保子标签的大小写转换不会产生该值，因为这在语言标签中是非法的。例如，如果使用在土耳其语环境中将区域子标签<code class="subtag">in</code>大写，则将产生序列 <span class="uname">U+0130 U+004E</span>，而不是预期的<code class="subtag">IN</code>。
+  </p>
+
+</section>
+
+<section>
+  <h4>语言子标签的来源和解释</h4>
+
+  <p>
+    语言标签及其子标签的命名空间由互联网号码分配局（IANA）根据本文档<i class="todo">TODO</i>的规则进行管理。IANA维护的语言子标签注册中心是有效子标签的来源：本节中引用的其他标准提供了该注册中心的源材料。
+  </p>
+
+  <p>
+    本文档中使用的术语：
+  </p>
+
+  <ul>
+    <li>
+      “标签”指完整的语言标签，例如<code class="tag">sr-Latn-RS</code>或<code class="tag">az-Arab-IR</code>。（<span class="translator-note">译注：本文档中的标签使用较粗的字体显示（<code class="tag">en-US</code>）。</span>）
+    </li>
+    <li>
+      “子标签”指标签的特定部分，由连字符分隔，例如标签<code class="tag">zh-Hant-CN</code>中的子标签<code class="subtag">zh</code>、<code class="subtag">Hant</code>和<code class="subtag">CN</code>。
+    </li>
+    <li>
+      “代码”指外部标准中定义的值（并且在本文档中用作子标签）。例如，<code class="subtag">Hant</code>是一个 [[ISO15924]] 文字代码，用于定义要在语言标签中使用的<code class="subtag">Hant</code>文字子标签。
+    </li>
+  </ul>
+
+  <p>
+    语言标签的设计使每种子标签类型都有其唯一的长度和内容限制，这样即使子标签本身的内容无法识别，也可以识别子标签的类型。这样可以在在不参考本文档的基础标准的最新版本或IANA注册中心的情况下解析和处理标签，也简化了解析标签时的异常处理。
+  </p>
+
+  <p>
+    IANA注册中心中的某些子标签并非来自其他基础标准。这些子标签只能作为主要语言子标签或变体子标签出现。
+  </p>
+
+</section>
+
+
+    </section>
+  </section>
+
+</section>
+
+<section id="matching-of-language-tags">
+  <h2>
+    语言标签的匹配 (Matching of Language Tags, RFC 4647)
+  </h2>
+
+  <p>TODO</p>
+</section>
+
+
+<section class="appendix" id="terms">
+  <h2>
+    中英文术语对照表
+  </h2>
+
+  <table class="appendix glossary">
+    <tr>
+      <td>English</td>
+      <td>简体中文</td>
+    </tr>
+
+    <tr>
+      <td>Cyrillic script</td>
+      <td>西里尔字母</td>
+    </tr>
+
+    <tr>
+      <td>extended language subtag</td>
+      <td>扩展语言子标签</td>
+    </tr>
+
+    <tr>
+      <td>grandfathered tag</td>
+      <td>旧版标签</td>
+    </tr>
+
+    <tr>
+      <td>IANA Language Subtag Registry</td>
+      <td>IANA语言子标签注册中心</td>
+    </tr>
+
+    <tr>
+      <td>language negotiation</td>
+      <td>语言协商</td>
+    </tr>
+
+    <tr>
+      <td>language range</td>
+      <td>语言范围</td>
+    </tr>
+
+    <tr>
+      <td>language tag</td>
+      <td>语言标签</td>
+    </tr>
+
+    <tr>
+      <td>macrolanguage</td>
+      <td>宏语言</td>
+    </tr>
+
+    <tr>
+      <td>primary language subtag</td>
+      <td>主要语言子标签</td>
+    </tr>
+
+    <tr>
+      <td>private use tag</td>
+      <td>私用标签</td>
+    </tr>
+
+    <tr>
+      <td>production</td>
+      <td>推导规则</td>
+    </tr>
+
+    <tr>
+      <td>register</td>
+      <td>注册</td>
+    </tr>
+
+    <tr>
+      <td>script subtag</td>
+      <td>文字子标签</td>
+    </tr>
+
+    <tr>
+      <td>singleton</td>
+      <td>单字符子标签</td>
+    </tr>
+
+    <tr>
+      <td>subtag</td>
+      <td>子标签</td>
+    </tr>
+
+    <tr>
+      <td>Unicode Character Database</td>
+      <td>Unicode字符数据库</td>
+    </tr>
+
+    <tr>
+      <td>valid</td>
+      <td>有效的</td>
+    </tr>
+
+    <tr>
+      <td>variant subtag</td>
+      <td>变体子标签</td>
+    </tr>
+
+    <tr>
+      <td>well-formed</td>
+      <td>符合语法规则的</td>
+    </tr>
+
+  </table>
+</section>
+
+<!-- TODO: sort the Glossary -->
+
+<section class="appendix" id="acknowledgement">
+  <h2>
+    致谢
+  </h2>
+
+  <p>TBD</p>
+</section>
+</body>
+</html>
