@@ -112,19 +112,12 @@ div.exampleHeader { font-weight: bold;
 <p>本规范的主要目标受众是W3C标准编辑。本规范或其部分内容定义了W3C规范以及其他规范的一致性标准，并且可以被其他W3C规范所引用。</p>
 <p>本规范的其他受众包括W3C社区之外的软件开发者、内容开发者和标准编辑。软件开发者和内容开发者实现和使用W3C规范。本规范为实现和使用W3C规范的实现（软件）和内容定义了一些一致性标准，还帮助软件开发者和内容开发者了解W3C规范中与字符相关的规定。</p>
 <p>本规范中描述的字符模型为标准编辑、软件开发者和内容开发者提供了一个通用参考，用于在Web上进行一致的、可互操作的文本操作。三组人一起工作，将会构建一个更加国际化的Web。</p>
-<p>Topics addressed in this part of the Character Model for the World Wide Web
-include use of the terms '<span class="qterm">character</span>', '<span class="qterm">encoding</span>' and
-'<span class="qterm">string</span>', a reference processing model, choice and identification
-of character encodings, character escaping, and string indexing.</p><p>Other parts of the Character Model address
- normalization and string identity matching (<a href="#charnorm">[CharNorm]</a>)  and Internationalized Resource Identifiers (IRI) conventions
-(<a href="#charmod3">[CharIRI]</a>).</p><p>Topics as yet not addressed or barely touched include fuzzy
-matching, and language tagging. Some of these topics may be addressed in a
-future version of this specification.</p><p>At the core of the model is the Universal Character Set (UCS), defined
-jointly by the Unicode Standard <a href="#unicode">[Unicode]</a> and ISO/IEC 10646
-<a href="#iso10646">[ISO/IEC 10646]</a>. In this document, <span class="new-term"> Unicode</span> is used as a
-synonym for the Universal Character Set. The model will allow Web documents
-authored in the world's scripts (and on different platforms) to be exchanged,
-read, and searched by Web users around the world.</p></div><div class="div2"> <h3><a name="sec-Background" id="sec-Background" />1.2 Background</h3><p>This section provides some historical background on the topics
+<p>万维网字符模型的这一部分涉及的主题包括术语“字符”、“编码”和“字符串”的使用，还有一个参考处理模型、字符编码的选择和识别、字符转义和字符串索引。</p>
+<p>字符模型的其他部分涉及正规化和字符串匹配 (<a href="#charnorm">[CharNorm]</a>) 以及国际化资源标识符 (IRI) 的规则 (<a href="#charmod3">[CharIRI]</a>)。</p>
+<p>尚未解决或者几乎没有涉及的主题包括模糊匹配和语言标签，其中一些主题可能会在本规范的未来版本中得到解决。</p>
+<p>该模型的核心是通用字符集 (UCS)，它由Unicode标准 <a href="#unicode">[Unicode]</a> 和ISO/IEC 10646 <a href="#iso10646">[ISO/IEC 10646]</a> 联合定义。在本文档中，<span class="new-term">Unicode</span>用作通用字符集的同义词。该模型允许世界各地的用户交换、阅读和搜索以世界各地的语言文字（以及在不同平台上）制作的网页。</p>
+</div>
+<div class="div2"> <h3><a name="sec-Background" id="sec-Background">1.2 背景</h3><p>This section provides some historical background on the topics
 addressed in this specification.</p><p>Starting with <cite>Internationalization of the Hypertext Markup Language
 </cite> <a href="#rfc2070">[RFC 2070]</a>, the Web community has recognized the need
 for a character model for the World Wide Web. The first step towards building
