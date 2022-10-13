@@ -117,18 +117,15 @@ div.exampleHeader { font-weight: bold;
 <p>尚未解决或者几乎没有涉及的主题包括模糊匹配和语言标签，其中一些主题可能会在本规范的未来版本中得到解决。</p>
 <p>该模型的核心是通用字符集 (UCS)，它由Unicode标准 <a href="#unicode">[Unicode]</a> 和ISO/IEC 10646 <a href="#iso10646">[ISO/IEC 10646]</a> 联合定义。在本文档中，<span class="new-term">Unicode</span>用作通用字符集的同义词。该模型允许世界各地的用户交换、阅读和搜索以世界各地的语言文字（以及在不同平台上）制作的网页。</p>
 </div>
-<div class="div2"> <h3><a name="sec-Background" id="sec-Background">1.2 背景</h3><p>This section provides some historical background on the topics
-addressed in this specification.</p><p>Starting with <cite>Internationalization of the Hypertext Markup Language
-</cite> <a href="#rfc2070">[RFC 2070]</a>, the Web community has recognized the need
-for a character model for the World Wide Web. The first step towards building
-this model was the adoption of Unicode as the document character set for HTML.</p><p>The choice of Unicode was motivated by the fact that Unicode:
-
-  </p><ul><li><p>is the only universal character repertoire available,</p></li><li><p>provides a way of referencing characters independent of the
-      encoding of the text,</p></li><li><p>is being updated/completed carefully,</p></li><li><p>is widely accepted and implemented by industry.</p></li></ul><p>
-
-</p><p>W3C adopted Unicode as the document character set for HTML in <a href="#html40">[HTML 4.0]</a>. The same approach was later used for specifications such as XML 1.0
-<a href="#xml10">[XML 1.0]</a> and CSS2 <a href="#css2">[CSS2]</a>. W3C specifications and
-applications now use Unicode as the common reference character set.</p><p>When data transfer on the Web remained mostly unidirectional (from server to
+<div class="div2"> <h3><a name="sec-Background" id="sec-Background">1.2 背景</h3><p>本节提供了有关本规范的主题的一些历史背景。</p>
+<p>从<cite>超文本标记语言的国际化</cite> <a href="#rfc2070">[RFC 2070]</a> 开始，Web社区已经认识到对万维网字符模型的需求。构建这个模型的第一步是采用Unicode作为HTML的文档字符集。</p>
+<p>选择Unicode的动机是Unicode：</p>
+<ul><li><p>是唯一可用的通用字符表</p></li>
+	<li><p>提供了一种独立于文本编码来引用字符的方法</p></li>
+	<li><p>在持续维护</p></li>
+	<li><p>被业界广泛接受和实现</p></li></ul><p>
+</p><p>W3C在 <a href="#html40">[HTML 4.0]</a> 中采用Unicode作为HTML的文档字符集。XML 1.0 <a href="#xml10">[XML 1.0]</a> 和 CSS2 <a href="#css2">[CSS2]</a> 等规范也采用了相同的方法。W3C规范和应用现已使用Unicode作为通用的参考字符集。</p>
+<p>When data transfer on the Web remained mostly unidirectional (from server to
 browser), and where the main purpose was to render documents, the use of Unicode
 without specifying additional details was sufficient. However, the Web has
 grown:
