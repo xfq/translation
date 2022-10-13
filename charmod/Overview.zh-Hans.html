@@ -125,30 +125,18 @@ div.exampleHeader { font-weight: bold;
 	<li><p>在持续维护</p></li>
 	<li><p>被业界广泛接受和实现</p></li></ul><p>
 </p><p>W3C在 <a href="#html40">[HTML 4.0]</a> 中采用Unicode作为HTML的文档字符集。XML 1.0 <a href="#xml10">[XML 1.0]</a> 和 CSS2 <a href="#css2">[CSS2]</a> 等规范也采用了相同的方法。W3C规范和应用现已使用Unicode作为通用的参考字符集。</p>
-<p>When data transfer on the Web remained mostly unidirectional (from server to
-browser), and where the main purpose was to render documents, the use of Unicode
-without specifying additional details was sufficient. However, the Web has
-grown:
-
-  </p><ul><li><p>Data transfers among servers, proxies, and clients, in all
-      directions, have increased.</p></li><li><p>Characters outside the US-ASCII
-		<a href="#iso646">[ISO/IEC 646]</a><a href="#MIME-charset">[MIME-charset]</a> repertoire
-		are being used in more and more places.</p></li><li><p>Data transfers between different protocol/format elements (such as
-        element/attribute names, URI components, and textual content) have
-        increased.</p></li><li><p>More and more APIs are defined, not just protocols and
-      formats.</p></li></ul><p>
-
-</p><p>In short, the Web may be seen as a single, very large application (see
-<a href="#Nicol">[Nicol]</a>), rather than as a collection of small independent
-applications.</p><p>While these developments strengthen the requirement that Unicode be the basis
-of a character model for the Web, they also create the need for additional
-specifications on the application of Unicode to the Web. Some aspects of Unicode
-that require additional specification for the Web include:
-
-  </p><ul><li><p>Choice of Unicode encoding forms (UTF-8, UTF-16, UTF-32).</p></li><li><p>Counting characters, measuring string length in the presence
-      of variable-length character encodings and combining characters.</p></li><li><p>Duplicate encodings of characters (e.g. precomposed vs decomposed).</p></li><li><p>Use of control codes for various purposes (e.g. bidirectionality
-      control, symmetric swapping, etc.).</p></li></ul><p>
-
+<p>当Web上的数据传输大多是单向的（从服务器到浏览器），并且主要目的是呈现文档时，直接使用Unicode并且不指定额外的细节就足够了。然而，Web也在发展：</p>
+<ul><li><p>服务器、代理和客户端之间在各个方向上的数据传输都有所增加。</p></li>
+	<li><p>越来越多的地方开始使用US-ASCII <a href="#iso646">[ISO/IEC 646]</a><a href="#MIME-charset">[MIME-charset]</a> 以外的字符。</p></li>
+	<li><p>不同协议和格式的元素（比如元素和属性名称、URI的各部分和纯文本内容）之间的数据传输有所增加。</p></li>
+	<li><p>定义了越来越多的API，而不仅仅是协议和格式。</p></li></ul><p>
+</p>
+<p>简而言之，Web可以被视为一个单一的、非常大的应用程序（参见<a href="#Nicol">[Nicol]</a>），而不是很多小型的独立应用的集合。</p>
+<p>虽然这些发展加强了Unicode作为Web字符模型基础的要求，但也产生了对将Unicode应用于Web的附加规范的需求。需要对Web进行额外规范的Unicode的一些方面包括：</p>
+<ul><li><p>Unicode 编码形式（encoding form）的选择（UTF-8、UTF-16、UTF-32）。</p></li>
+	<li><p>字符计数，也就是在存在可变长度字符编码和组合字符的情况下测量字符串的长度。</p></li>
+	<li><p>字符的重复编码（如预组合与分解后的字符）。</p></li>
+	<li><p>将控制字符用于各种目的（例如双向文本控制、对称交换等）。</p></li></ul><p>
 </p><p id="def-legacyEnc">It should be noted that such aspects also exist in various
 encodings, and in many cases have been inherited by Unicode
 in one way or another from these encodings.</p><p>The remainder of this specification presents
