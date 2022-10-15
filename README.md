@@ -11,6 +11,7 @@ This repository contains unofficial translations for a few specifications.
 Conformance requirements in W3C specifications are usually expressed with a combination of descriptive assertions and RFC 2119 terminology.
 
 * [English](https://www.rfc-editor.org/info/rfc2119)
+* [简体中文](https://github.com/xfq/translation/blob/main/bcp14/rfc2119.zh-Hans.md)
 
 #### RFC 8174
 
