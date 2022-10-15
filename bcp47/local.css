@@ -9,7 +9,10 @@
   font-family: 'Punctuation SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', 'PingFang SC', 'Noto Sans SC', 'Noto Sans CJK SC', 'Heiti SC', 'DengXian', 'Microsoft YaHei', sans-serif;
 }
 
-pre, code, pre span, code span {
+pre,
+code,
+pre *,
+code * {
   font-family: Menlo, Consolas, "DejaVu Sans Mono", Monaco, monospace !important;
 }
 
