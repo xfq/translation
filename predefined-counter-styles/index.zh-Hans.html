@@ -1203,13 +1203,13 @@ suffix: '\1366 '; /* ፦ */
 <p class="note">以下是Blink的内置样式，WebKit也支持其中一部分，但Firefox不支持这些样式：<code class="kw" translate="no">ethiopic-halehame</code>, <code class="kw" translate="no">ethiopic-halehame-am</code>, <code class="kw" translate="no">ethiopic-halehame-ti-er</code>, <code class="kw" translate="no">ethiopic-halehame-ti-et</code>。如果你希望这些名称适用于所有支持自定义计数器样式的浏览器，请使用此处提供的模板。</p>
 
 
-<p class="note"> See also the <a href="https://www.w3.org/TR/css-counter-styles-3/#complex-predefined-counters">CSS3 Counter Styles</a> specification for the more complex, predefined <code class="kw" translate="no">ethiopic-numeric</code> style.     Check browser support for the <code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#ethiopic" target="_blank">ethiopic-numeric</a></code> style.</p>
+<p class="note">对于更复杂的、预定义的、<code class="kw" translate="no">ethiopic-numeric</code>样式，另请参阅<a href="https://www.w3.org/TR/css-counter-styles-3/">CSS Counter Styles Level 3</a>规范。检查浏览器对<code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#ethiopic" target="_blank">ethiopic-numeric</a></code>样式的支持。</p>
 </section>
 
 
 
 <section id="georgian-styles">
-<h2>Georgian</h2>
+<h2>格鲁吉亚字母</h2>
 
 <div class="counterstyle">
 <code><bdo dir="ltr">
@@ -1220,14 +1220,14 @@ additive-symbols: 10000 '\10F5', 9000 '\10F0', 8000 '\10EF', 7000 '\10F4', 6000 
 /* additive-symbols: 10000 '&#4341;', 9000 '&#4336;', 8000 '&#4335;', 7000 '&#4340;', 6000 '&#4334;', 5000 '&#4333;', 4000 '&#4332;', 3000 '&#4331;', 2000 '&#4330;', 1000 '&#4329;', 900 '&#4328;', 800 '&#4327;', 700 '&#4326;', 600 '&#4325;', 500 '&#4324;', 400 '&#4339;', 300 '&#4322;', 200 '&#4321;', 100 '&#4320;', 90 '&#4319;', 80 '&#4318;', 70 '&#4317;', 60 '&#4338;', 50 '&#4316;', 40 '&#4315;', 30 '&#4314;', 20 '&#4313;', 10 '&#4312;', 9 '&#4311;', 8 '&#4337;', 7 '&#4310;', 6 '&#4309;', 5 '&#4308;', 4 '&#4307;', 3 '&#4306;', 2 '&#4305;', 1 '&#4304;'; */
 }
 </bdo></code></div>
-<p class="note">This style is  defined in the <a href="https://www.w3.org/TR/css-counter-styles-3/">CSS Counter Styles Level 3</a> specification.    Check browser support for the <code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplenumeric" target="_blank">georgian</a></code> style.</p>
+<p class="note">该样式在<a href="https://www.w3.org/TR/css-counter-styles-3/">CSS Counter Styles Level 3</a>规范中定义。检查浏览器对<code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplenumeric" target="_blank">georgian</a></code>样式的支持。</p>
 
 </section>
 
 
 
 <section id="greek-styles">
-<h2>Greek</h2>
+<h2>希腊字母</h2>
 
 <div class="counterstyle"> <code>
 <bdo dir="ltr">@counter-style <dfn id="greek-lower-modern"><a href="#greek-lower-modern">greek-lower-modern</a></dfn> {
@@ -1274,13 +1274,13 @@ symbols: '\3B1' '\3B2' '\3B3' '\3B4' '\3B5' '\3B6' '\3B7' '\3B8' '\3B9' '\3BA' '
 }
 </bdo></code></div>
 
-<p class="note">The <code class="kw" translate="no">lower-greek</code> style is  defined in the <a href="https://www.w3.org/TR/css-counter-styles-3/">CSS Counter Styles Level 3</a> specification, however the <code class="kw" translate="no">greek-lower-modern</code> style is more commonly used in Greece. CSS2.1 included the <code class="kw" translate="no">lower-greek</code> keyword, which <a href="https://github.com/w3c/csswg-drafts/issues/135#issuecomment-248303975">it appears</a> is used in mathematical texts, rather than ordinary Greek text. At the time of writing, all major browsers support the <code class="kw" translate="no">lower-greek</code> counter style but not the <code class="kw" translate="no">greek-lower-modern</code> style.  Check browser support for the <code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplealphabetic" target="_blank">lower-greek</a></code> style.</p>
+<p class="note"><code class="kw" translate="no">lower-greek</code>样式在<a href="https://www.w3.org/TR/css-counter-styles-3/">CSS Counter Styles Level 3</a>规范中定义，但<code class="kw" translate="no">greek-lower-modern</code>样式在希腊更常用。CSS2.1包含<code class="kw" translate="no">lower-greek</code>关键字，它<a href="https://github.com/w3c/csswg-drafts/issues/135#issuecomment-248303975">似乎</a>被用在数学上，而不是普通的希腊文字中。在撰写本文时，所有主流浏览器都支持<code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplealphabetic" target="_blank">lower-greek</a></code>计数器样式，但不支持<code class="kw" translate="no">greek-lower-modern</code>样式。检查浏览器对<code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplealphabetic" target="_blank">lower-greek</a></code>样式的支持。</p>
 </section>
 
 
 
 <section id="gujarati-styles">
-  <h2>Gujarati</h2>
+  <h2>古吉拉特文</h2>
 
 <div class="counterstyle">
 <code><bdo dir="ltr">
@@ -1290,7 +1290,7 @@ symbols: '\AE6' '\AE7' '\AE8' '\AE9' '\AEA' '\AEB' '\AEC' '\AED' '\AEE' '\AEF';
 /* symbols: '&#2790;' '&#2791;' '&#2792;' '&#2793;' '&#2794;' '&#2795;' '&#2796;' '&#2797;' '&#2798;' '&#2799;'; */
 }
 </bdo></code></div>
-<p class="note">This style is defined in the <a href="https://www.w3.org/TR/css-counter-styles-3/">CSS Counter Styles Level 3</a> specification.   Check browser support for the <code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplenumeric" target="_blank">gujarati</a></code> style.</p>
+<p class="note">该样式在<a href="https://www.w3.org/TR/css-counter-styles-3/">CSS Counter Styles Level 3</a>规范中定义。检查浏览器对<code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplenumeric" target="_blank">gujarati</a></code>样式的支持。</p>
 
 
 
