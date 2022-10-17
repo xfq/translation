@@ -34,3 +34,10 @@ This Architectural Specification provides authors of specifications, software de
 
 * [English](https://www.w3.org/TR/charmod/)
 * [简体中文](https://xfq.github.io/translation/charmod/Overview.zh-Hans.html)
+
+### Ready-made Counter Styles
+
+This document provides ready-made definitions for counter styles and covers the needs of a range of cultures around the world. The code snippets provided in the document can be included in style declarations by simply copying and pasting, or they can be use as a starting point and modified as desired.
+
+* [English](https://www.w3.org/TR/predefined-counter-styles/)
+* [简体中文](https://xfq.github.io/translation/predefined-counter-styles/index.zh-Hans.html)
