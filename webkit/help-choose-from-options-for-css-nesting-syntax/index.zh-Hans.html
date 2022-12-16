@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-hans" style="background: white;">
+<head>
+<meta charset="utf-8" />
+<title>帮助选择CSS嵌套的语法</title>
+
+<link rel="stylesheet" href="./local.css" />
+
+<script defer class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+
+<script class="remove">
+var respecConfig = {
+  specStatus: "unofficial",
+  license: "cc-by",
+  editors: [
+    {
+          name: "Jen Simmons",
+          company: "Apple"
+    },
+        ],
+        edDraftURI: "https://xfq.github.io/translation/webkit/help-choose-from-options-for-css-nesting-syntax/index.zh-Hans.html",
+        shortName: "webkit-css-nesting-zh-hans",
+
+};
+</script>
+</head>
+
+<body>
+<!-- TODO: remove the TODOs -->
+<h1 class="title p-name" id="title">帮助选择CSS嵌套的语法</h1>
+<div id="abstract">
+  <p>CSS工作组正在讨论定义嵌套的最佳方式。如果你编写CSS，我们需要你的帮助。</p>
+  <p>英文原版请见：<a href="https://webkit.org/blog/13607/help-choose-from-options-for-css-nesting-syntax/">https://webkit.org/blog/13607/help-choose-from-options-for-css-nesting-syntax/</a></p>
+</div>
+
+<div id="sotd">
+  <p>如果你对本译文有任何建议和反馈，请把你的想法整理并发布在<a href="https://github.com/xfq/translation/issues">GitHub issues</a>中。</p>
+</div>
+
+<section>
+  <h2>
+    帮助选择CSS嵌套的语法
+  </h2>
+    <p>嵌套是<a href="https://sass-lang.com/">Sass</a>等工具里的一个非常受欢迎的功能。它可以节省Web开发者的时间，而不必一遍又一遍地编写相同的选择器上。嵌套还可以让代码更整洁、更容易理解。</p>
+
+    <div class="figure">
+      <div class="option">
+      <div class="h4">无嵌套的CSS</div>
+<pre><code>.class1 {
+  color: green;
+}
+.class1 .class2 {
+  border: 5px solid black;
+}
+</code></pre>
+      </div>
+      <div class="option">
+      <div class="h4">Sass中的嵌套</div>
+<pre><code>.class1 {
+  color: green;
+  .class2 {
+    border: 5px solid black;
+  }
+}
+</code></pre>
+      </div>
+      </div>
+
+      <p>每个人都希望CSS嵌套可以使用与Sass相同的简单语法。然而因为浏览器解析引擎的工作方式，这并不可能实现。如果他们看到像`element:pseudo`这样的序列，他们将解析整个样式规则，就好像它是一个`property: value`声明一样。</p>
+
+      <p>因此，CSS工作组开始了较长的关于下一步计划的讨论。今年夏天，CSS工作组<a href="https://developer.chrome.com/blog/help-css-nesting/">在选项1、选项2和选项3之间进行了讨论</a>，选项3获胜。从那之后，又有两个新的选项被提出：选项4和选项5。如果你还记得在<a href="https://github.com/w3c/csswg-drafts/issues?q=is%3Aissue+label%3Acss-nesting-1+">53+个issue</a>中讨论的各种细节，请将所有这些旧想法放在一边。目前，我们只是在选项3、4和5之间进行讨论，正如下面的一组示例所描述的那样。</p>
+
+</section>
+
+
+
+</body>
+</html>

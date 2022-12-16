@@ -1,0 +1,98 @@
+/* From https://github.com/w3c/clreq/blob/gh-pages/local.css */
+@font-face {
+  font-family: 'Punctuation SC';
+  src: local('PingFang SC'), local('Noto Sans SC'), local('Noto Sans CJK SC'), local('Heiti SC'), local('Microsoft Yahei');
+  unicode-range: U+201C, U+201D, U+2018, U+2019, U+2E3A, U+2014, U+2013, U+2026, U+00B7, U+007E, U+002F;
+}
+
+:lang(zh-hans) {
+  font-family: 'Punctuation SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', 'PingFang SC', 'Noto Sans SC', 'Noto Sans CJK SC', 'Heiti SC', 'DengXian', 'Microsoft YaHei', sans-serif;
+}
+
+pre,
+code,
+pre *,
+code * {
+  font-family: Menlo, Consolas, "DejaVu Sans Mono", Monaco, monospace !important;
+}
+
+.uname {
+  text-transform: uppercase;
+  font-size: 85%;
+  letter-spacing:0.03em;
+}
+
+.todo {
+  color: #900;
+  background-color: #FFC;
+}
+
+/* From https://webkit.org/blog/13607/help-choose-from-options-for-css-nesting-syntax/ */
+.webkit-survey-form input[type=radio] + span {
+  color: hsl(240, 2%, 42%);
+}
+.webkit-survey-form input[type=radio]:checked + span {
+  color: hsl(0, 0%, 0%);
+}
+.figure {
+  background: rgb(234, 240, 238);
+}
+.figure pre {
+  background-color: white;
+}
+@media (prefers-color-scheme: dark) {
+  .webkit-survey-form input[type=radio] + span {
+    color: hsl(240, 0%, 75.5%);
+  }
+  .webkit-survey-form input[type=radio]:checked + span {
+    color: white;
+  }
+  .figure {
+    background: black;
+  }
+  .figure pre {
+    background-color: rgb(42, 42, 42);
+  }
+}
+.figure {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: calc(1rem + 2vw);
+  box-sizing: border-box;
+  align-items: stretch;
+  justify-self: center;
+  padding: 2rem calc(1rem + 2vw);
+}
+.figure.widescreen {
+  padding: 3rem calc(2rem + 4vw);
+}
+h3 {
+  margin: 6rem 0 3rem;
+  text-align: center;
+}
+h3:has(+ p) {
+  margin-bottom: 2rem;
+}
+.h4 {
+  font-size: 1.6rem;
+}
+.figure .h4 {
+  margin-bottom: 1.5rem;
+}
+.figure p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+.figure pre {
+  text-align: left;
+  padding: 1rem;
+}
+.figure pre {
+  margin: 0;
+  width: auto;
+}
+pre code {
+  background: none;
+  font-size: 1.4rem;
+  line-height: 1;
+}
