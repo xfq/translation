@@ -533,6 +533,46 @@ additive-symbols: 9000 '\554', 8000 '\553', 7000 '\552', 6000 '\551', 5000 '\550
 
 </section>
 
+<section id="balinese-styles">
+<h2>巴厘文字</h2>
+
+<div class="counterstyle">
+<code><bdo dir="ltr">
+@counter-style <dfn id="balinese"><a href="#balinese">balinese</a></dfn> {
+system: numeric;
+ symbols: \1B50  \1B51  \1B52  \1B53  \1B54  \1B55  \1B56  \1B57  \1B58  \1B59 ;
+/* symbols: ᭐ ᭑ ᭒ ᭓ ᭔ ᭕ ᭖ ᭗ ᭘ ᭙; */
+}
+</bdo></code></div>
+
+</section>
+
+
+
+
+
+
+
+<section id="bamum-styles">
+<h2>Bamum</h2>
+
+<div class="counterstyle">
+<code><bdo dir="ltr">
+@counter-style <dfn id="bamum"><a href="#bamum">bamum</a></dfn> {
+system: numeric;
+ symbols: \A6EF  \A6E6  \A6E7  \A6E8  \A6E9  \A6EA  \A6EB  \A6EC  \A6ED  \A6EE ;
+/* symbols: ꛯ ꛦ ꛧ ꛨ ꛩ ꛪ ꛫ ꛬ ꛭ ꛮ; */
+}
+</bdo></code></div>
+
+</section>
+
+
+
+
+
+
+
 
 <section id="bengali-styles">
   <h2>孟加拉文</h2>
@@ -631,7 +671,7 @@ suffix: ') ';
 
 <div class="counterstyle">
 <code><bdo dir="ltr">
-@counter-style <dfn id="lower-serbo-croatian"><a href="#lower-serbo-croatian">lower-serbo-croatian</a></dfn> {
+@counter-style <dfn id="lower-serbian"><a href="#lower-serbian">lower-serbian</a></dfn> {
 system: alphabetic;
 symbols: '\430' '\431' '\432' '\433' '\434' '\452' '\435' '\436' '\437' '\438' '\458' '\43A' '\43B' '\459' '\43C' '\43D' '\45A' '\43E' '\43F' '\440' '\441' '\442' '\45B' '\443' '\444' '\445' '\446' '\447' '\45F' '\448';
 /* symbols: '&#1072;' '&#1073;' '&#1074;' '&#1075;' '&#1076;' '&#1106;' '&#1077;' '&#1078;' '&#1079;' '&#1080;' '&#1112;' '&#1082;' '&#1083;' '&#1113;' '&#1084;' '&#1085;' '&#1114;' '&#1086;' '&#1087;' '&#1088;' '&#1089;' '&#1090;' '&#1115;' '&#1091;' '&#1092;' '&#1093;' '&#1094;' '&#1095;' '&#1119;' '&#1096;'; */
@@ -706,7 +746,7 @@ symbols: '\410' '\411' '\412' '\413' '\414' '\415' '\401' '\416' '\417' '\418' '
 
 <div class="counterstyle">
 <code><bdo dir="ltr">
-@counter-style <dfn id="upper-serbo-croatian"><a href="#upper-serbo-croatian">upper-serbo-croatian</a></dfn> {
+@counter-style <dfn id="upper-serbian"><a href="#upper-serbian">upper-serbian</a></dfn> {
 system: alphabetic;
 symbols: '\410' '\411' '\412' '\413' '\414' '\402' '\415' '\416' '\417' '\418' '\408' '\41A' '\41B' '\409' '\41C' '\41D' '\40A' '\41E' '\41F' '\420' '\421' '\422' '\40B' '\423' '\424' '\425' '\426' '\427' '\40F' '\428';
 /* symbols: '&#1040;' '&#1041;' '&#1042;' '&#1043;' '&#1044;' '&#1026;' '&#1045;' '&#1046;' '&#1047;' '&#1048;' '&#1032;' '&#1050;' '&#1051;' '&#1033;' '&#1052;' '&#1053;' '&#1034;' '&#1054;' '&#1055;' '&#1056;' '&#1057;' '&#1058;' '&#1035;' '&#1059;' '&#1060;' '&#1061;' '&#1062;' '&#1063;' '&#1039;' '&#1064;'; */
@@ -2034,6 +2074,20 @@ prefix: ''; suffix: '။ ';
 </section>
 
 
+<section id="nko-styles">
+<h2>西非书面字母</h2>
+
+<div class="counterstyle">
+<code><bdo dir="ltr">
+@counter-style <dfn id="nko-cardinal"><a href="#lepcha">nko-cardinal</a></dfn> {
+system: numeric;
+symbols: \07C1  \07C2  \07C3  \07C4  \07C5  \07C6  \07C7  \07C8  \07C9  \07C0;
+/* symbols: &#x07C1; &#x07C2; &#x07C3; &#x07C4; &#x07C5; &#x07C6; &#x07C7; &#x07C8; &#x07C9; &#x07C0; */
+suffix: ' - ';
+}
+</bdo></code></div>
+
+</section>
 
 
 
@@ -2575,7 +2629,8 @@ additive-symbols: 1000 '\4D', 900 '\43\4D', 500 '\44', 400 '\43\44', 100 '\43', 
 [Oriya]
 <a href="#odia"><code class="kw" translate="no">odia</code></a>,
 [Telugu]
-<a href="#telugu"><code class="kw" translate="no">telugu</code></a>.
+<a href="#telugu"><code class="kw" translate="no">telugu</code></a>.  
+Klemen Kogovšek proposed changing 'serbo-croatian' to just 'serbian'.
 </p>
 </section>
   </body>
