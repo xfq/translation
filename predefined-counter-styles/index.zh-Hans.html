@@ -2309,6 +2309,40 @@ suffix: ')';
 
 
 
+<section id="sundanese-styles">
+<h2>巽他文</h2>
+
+<div class="counterstyle">
+<code><bdo dir="ltr">
+@counter-style <dfn id="sundanese"><a href="#sundanese">sundanese</a></dfn> {
+system: numeric;
+ symbols: \1BB0  \1BB1  \1BB2  \1BB3  \1BB4  \1BB5  \1BB6  \1BB7  \1BB8  \1BB9;
+/* symbols: ᮰ ᮱ ᮲ ᮳ ᮴ ᮵ ᮶ ᮷ ᮸ ᮹; */
+}
+</bdo></code></div>
+
+</section>
+
+
+
+
+
+
+<section id="tailue-styles">
+<h2>傣仂语</h2>
+
+<div class="counterstyle">
+<code><bdo dir="ltr">
+@counter-style <dfn id="tai-lue"><a href="#tai-lue">tai-lue</a></dfn> {
+system: numeric;
+ symbols: \19D0  \19D1  \19D2  \19D3  \19D4  \19D5  \19D6  \19D7  \19D8  \19D9  \19DA;
+/* symbols: ᧐ ᧑ ᧒ ᧓ ᧔ ᧕ ᧖ ᧗ ᧘ ᧙ ᧚; */
+}
+</bdo></code></div>
+
+</section>
+
+
 
 
 
@@ -2691,7 +2725,7 @@ additive-symbols: 1000 '\4D', 900 '\43\4D', 500 '\44', 400 '\43\44', 100 '\43', 
   <h2>修订记录</h2>
   <p>以下总结了自上次发布以来的实质性更改。</p>
   <ol>
-  <li>为瓦兰齐地文添加了一个数字模板。</li>
+  <!-- <li>为瓦兰齐地文添加了一个数字模板。</li>
 <li>添加以下17个模板：
     [阿拉伯文]
 <a href="#kashmiri"><code class="kw" translate="no">kashmiri</code></a>,
@@ -2721,7 +2755,7 @@ additive-symbols: 1000 '\4D', 900 '\43\4D', 500 '\44', 400 '\43\44', 100 '\43', 
 <a href="#odia"><code class="kw" translate="no">odia</code></a>,
 [泰卢固文]
 <a href="#telugu"><code class="kw" translate="no">telugu</code></a>.</li>
-<li>将桑塔利文的数字样式重命名为“ol-chiki”，并将名称“santali”用于字母样式。</li>
+<li>将桑塔利文的数字样式重命名为“ol-chiki”，并将名称“santali”用于字母样式。</li> -->
 </ol>
     <p>有关更多详细信息，请参阅<a href="https://github.com/w3c/predefined-counter-styles/commits/gh-pages">GitHub提交记录</a>。</p>
 </section>
@@ -2730,7 +2764,7 @@ additive-symbols: 1000 '\4D', 900 '\43\4D', 500 '\44', 400 '\43\44', 100 '\43', 
 <section class="appendix">
 <h2>致谢</h2>
 <p>Ian Hickson and Tantek Çelı̇k provided the majority of early contributions to this content. Additional significant contributions were made by Tab Atkins.</p>
-<p>Additional thanks to Mati Allouche, George Schizas. <code class="kw" translate="no">cjk-tally-mark</code> and <code class="kw" translate="no">cjk-stem-branch</code> were proposed by @c933103, and <code class="kw" translate="no">tally-mark</code> by Mike Bremford. Thanks to Yaibeelen Mangang and Amir Aharoni for <code class="kw" translate="no">meetei</code>. Prashant Verma and CDAC provided templates for 17 Indian styles, including
+<p>Additional thanks to the following: Mati Allouche for help with Hebrew; George Schizas for help with Greek; <code class="kw" translate="no">cjk-tally-mark</code> and <code class="kw" translate="no">cjk-stem-branch</code> were proposed by @c933103, and <code class="kw" translate="no">tally-mark</code> by Mike Bremford; Yaibeelen Mangang and Amir Aharoni proposed <code class="kw" translate="no">meetei</code>;  Prashant Verma and CDAC provided templates for 17 Indian styles, including
 [Arabic]
 <a href="#kashmiri"><code class="kw" translate="no">kashmiri</code></a>,
 [Bengali]
@@ -2758,7 +2792,7 @@ additive-symbols: 1000 '\4D', 900 '\43\4D', 500 '\44', 400 '\43\44', 100 '\43', 
 [Oriya]
 <a href="#odia"><code class="kw" translate="no">odia</code></a>,
 [Telugu]
-<a href="#telugu"><code class="kw" translate="no">telugu</code></a>.  
+<a href="#telugu"><code class="kw" translate="no">telugu</code></a>;
 Klemen Kogovšek proposed changing 'serbo-croatian' to just 'serbian'.
 </p>
 </section>
