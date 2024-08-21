@@ -79,7 +79,13 @@ symbols:  '\627' '\628' '\62C' '\62F' '\647\200D' '\648' '\632' '\62D' '\637' '\
 system: fixed;
 symbols:  '\627' '\628' '\67E' '\62A' '\62B' '\62C' '\686' '\62D' '\62E' '\62F' '\630' '\631' '\632' '\698' '\633' '\634' '\635' '\636' '\637' '\638' '\639' '\63A' '\641' '\642' '\6A9' '\6AF' '\644' '\645' '\646' '\648' '\647\200D' '\6CC'; 
 }
-/*@counter-style urdu-alphabetic {
+@counter-style urdu {
+system: numeric;
+symbols:  '\6F0' '\6F1' '\6F2' '\6F3' '\6F4' '\6F5' '\6F6' '\6F7' '\6F8' '\6F9'; 
+suffix: '\06D4 '; 
+}
+
+@counter-style urdu-alphabetic {
 system: fixed;
 symbols:  '\0627' '\0628' '\067E' '\062A' '\0679' '\062B' '\062C' '\0686' '\062D' '\062E' '\062F' '\0688' '\0630' '\0631' '\0691' '\0632' '\0698' '\0633' '\0634' '\0635' '\0636' '\0637' '\0638' '\0639' '\063A' '\0641' '\0642' '\06A9' '\06AF' '\0644' '\0645' '\0646' '\06BA' '\0648' '\06C1' '\06BE' '\0621' '\06CC'; 
 }
@@ -87,7 +93,7 @@ symbols:  '\0627' '\0628' '\067E' '\062A' '\0679' '\062B' '\062C' '\0686' '\062D
 system: fixed;
 symbols:  '\0627' '\0628' '\062C' '\062F' '\06C1' '\0648' '\0632' '\062D' '\0637' '\06CC' '\06A9' '\0644' '\0645' '\0646' '\0633' '\0639' '\0641' '\0635' '\0642' '\0631' '\0634' '\062A' '\062B' '\062E' '\0630' '\0636' '\0638'  '\063A '; 
 }
-*/
+
 
 
 
@@ -139,6 +145,16 @@ system: alphabetic;
 symbols: '\0995' '\0996' '\0997' '\0998' '\0999' '\099A' '\099B' '\099C' '\099D' '\099E' '\099F' '\09A0' '\09A1' '\09A1\09BC' '\09A2' '\09A2\09BC' '\09A3' '\09A4' '\09CE' '\09A5' '\09A6' '\09A7' '\09A8' '\09AA' '\09AB' '\09AC' '\09AD' '\09AE' '\09AF' '\09AF\09BC' '\09B0' '\09B2' '\09B6' '\09B7' '\09B8' '\09B9' ;
 suffix: ') ';
 }
+
+
+/* BOPOMOFO */
+@counter-style zhuyin {
+system: alphabetic;
+symbols: "\3105" "\3106" "\3107" "\3108" "\3109" "\310A" "\310B" "\310C" "\310D" "\310E" "\310F" "\3110" "\3111" "\3112" "\3113" "\3114" "\3115" "\3116" "\3117" "\3118" "\3119" "\311A" "\311B" "\311C" "\311D" "\311E" "\311F" "\3120" "\3121" "\3122" "\3123" "\3124" "\3125" "\3126" "\3127" "\3128" "\3129";
+/* ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦㄧㄨㄩ */
+suffix: "、";
+}
+
 
 
 
@@ -1672,8 +1688,6 @@ symbols: '\627' '\628' '\67E' '\62A' '\62B' '\62C' '\686' '\62D' '\62E' '\62F' '
 
 <p class="note"><code class="kw" translate="no">arabic-indic</code>和<code class="kw" translate="no">persian</code>样式在[[[css-counter-styles-3]]]规范中定义。检查浏览器对<code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplenumeric" target="_blank">arabic-indic</a></code>和<code class="kw" translate="no"><a href="https://www.w3.org/International/i18n-tests/results/predefined-counter-styles#simplenumeric" target="_blank">persian</a></code>样式的支持。</p>
 
-<p class="note">Blink和WebKit内置了对<code class="kw" translate="no">urdu</code><code class="kw" translate="no"></code>样式的支持，并与上面的波斯文样式相同，然而Gecko浏览器并不支持<code class="kw" translate="no">urdu</code><code class="kw" translate="no"></code>。可以把上面的<code class="kw" translate="no">persian</code>模板重命名，添加到CSS文件中来在Firefox中提供支持。</p>
-
 <p class="note">请注意，HEH和ZWJ在此类列表中一起使用，是为了区分heh和数字5。这些符号以逻辑顺序列出，其中使用了转义符，并且当他们显示为字符时也在底层代码中使用了转义符（以使代码正确地复制粘贴）。但是，当显示的符号列表当作为阿拉伯文字读时，你应该从右向左地读他们。（在文档的先前版本中，我们使用了<code class="kw" translate="no">bdo</code>元素来显示所有书写方向为从左向右的文字，但这会干扰HEH的显示，HEH后面是ZWJ，并且应该看起来连接到左侧。）</p>
 <div class="note">
   <table id="arabic_comp">
@@ -1903,32 +1917,29 @@ symbols: '\627' '\628' '\67E' '\62A' '\62B' '\62C' '\686' '\62D' '\62E' '\62F' '
 
 
 
-<!--
-<div class="csWrapper">
-<div class="copyMe" onclick="copyTemplate('urdu-alphabetic')"><img src="copy.svg" alt="Copy the style template." title="Copy the style template."></div>
 
-<p class="name" id="urdu-alphabetic"><a href="#urdu-alphabetic">urdu-alphabetic</a></p>
+<div class="csWrapper">
+<div class="copyMe" onclick="copyTemplate('urdu')"><img src="copy.svg" alt="Copy the style template." title="Copy the style template."></div>
+
+<p class="name" id="urdu"><a href="#urdu">urdu</a></p>
 
 <p class="counterstyle"><code><bdo dir="ltr">
-@counter-style urdu-alphabetic {
-system: fixed;
-symbols: '\0627' '\0628' '\067E' '\062A' '\0679' '\062B' '\062C' '\0686' '\062D' '\062E' '\062F' '\0688' '\0630' '\0631' '\0691' '\0632' '\0698' '\0633' '\0634' '\0635' '\0636' '\0637' '\0638' '\0639' '\063A' '\0641' '\0642' '\06A9' '\06AF' '\0644' '\0645' '\0646' '\06BA' '\0648' '\06C1' '\06BE' '\0621' '\06CC';
-/* symbols: '&#x0627;' '&#x0628;' '&#x067E;' '&#x062A;' '&#x0679;' '&#x062B;' '&#x062C;' '&#x0686;' '&#x062D;' '&#x062E;' '&#x062F;' '&#x0688;' '&#x0630;' '&#x0631;' '&#x0691;' '&#x0632;' '&#x0698;' '&#x0633;' '&#x0634;' '&#x0635;' '&#x0636;' '&#x0637;' '&#x0638;' '&#x0639;' '&#x063A;' '&#x0641;' '&#x0642;' '&#x06A9;' '&#x06AF;' '&#x0644;' '&#x0645;' '&#x0646;' '&#x06BA;' '&#x0648;' '&#x06C1;' '&#x06BE;' '&#x0621;' '&#x06CC;'; */
+@counter-style urdu {
+system: numeric;
+symbols: '\6F0' '\6F1' '\6F2' '\6F3' '\6F4' '\6F5' '\6F6' '\6F7' '\6F8' '\6F9';
+/* symbols: '&#1776;' '&#1777;' '&#1778;' '&#1779;' '&#1780;' '&#1781;' '&#1782;' '&#1783;' '&#1784;' '&#1785;';*/
+suffix: '۔ ';
 }
 </bdo></code></p>
 
-<div id="out_urdu-alphabetic" class="browser_output"></div>
-<script>addExamples('urdu-alphabetic', 'ur', 'rtl')</script>
+<div id="out_urdu" class="browser_output"></div>
+<script>addExamples('urdu', 'ur', 'rtl')</script>
 </div>
 
 
 
 
-<aside class="note">
-<p>The urdu-alphabetic style is shown here as a fixed style.  According to CDAC, it is actually an unlimited style, where characters are doubled after the initial set is exhausted, eg. <span dir="rtl" lang="ur">ا ا</span>, <span dir="rtl" lang="ur">ب ب</span>, <span dir="rtl" lang="ur">ت ت</span>, etc. This can't be achieved using the standard 'alphabetic' algorithm. Furthermore, counters in this range do not join cursively, but are separated by a space.</p>
-</aside>
-
-
+<p class="note">Blink和WebKit内置了对<code class="kw" translate="no">urdu</code><code class="kw" translate="no"></code>样式的支持，并与上面的波斯语样式相同，在这里我们重复了该样式，但添加了默认的阿拉伯语句号作为后缀（Blink和Webkit未内置该样式）。Gecko浏览器没有内置支持，可以通过CSS文件中的声明在Firefox中提供支持。</p>
 
 
 
@@ -1955,12 +1966,36 @@ symbols:  '\0627' '\0628' '\062C' '\062F' '\06C1' '\0648' '\0632' '\062D' '\0637
 <div id="out_urdu-abjad" class="browser_output"></div>
 <script>addExamples('urdu-abjad', 'ur', 'rtl')</script>
 </div>
--->
+
 </section>
 
+<p class="note">据报道，乌尔都语有另一种辅音音素文字（abjad）样式，将表示11、12、13的<span lang="ur" dir="rtl">ک</span>、<span lang="ur" dir="rtl">ل</span>和<span lang="ur" dir="rtl">م</span>分别替换为<span lang="ur" dir="rtl">یا</span>、<span lang="ur" dir="rtl">یب</span>和<span lang="ur" dir="rtl">یج</span>。这两种样式可以在同一出版物中使用。</p>
 
 
 
+<div class="csWrapper">
+<div class="copyMe" onclick="copyTemplate('urdu-alphabetic')"><img src="copy.svg" alt="Copy the style template." title="Copy the style template."></div>
+
+<p class="name" id="urdu-alphabetic"><a href="#urdu-alphabetic">urdu-alphabetic</a></p>
+
+<p class="counterstyle"><code><bdo dir="ltr">
+@counter-style urdu-alphabetic {
+system: fixed;
+symbols: '\0627' '\0628' '\067E' '\062A' '\0679' '\062B' '\062C' '\0686' '\062D' '\062E' '\062F' '\0688' '\0630' '\0631' '\0691' '\0632' '\0698' '\0633' '\0634' '\0635' '\0636' '\0637' '\0638' '\0639' '\063A' '\0641' '\0642' '\06A9' '\06AF' '\0644' '\0645' '\0646' '\06BA' '\0648' '\06C1' '\06BE' '\0621' '\06CC';
+/* symbols: '&#x0627;' '&#x0628;' '&#x067E;' '&#x062A;' '&#x0679;' '&#x062B;' '&#x062C;' '&#x0686;' '&#x062D;' '&#x062E;' '&#x062F;' '&#x0688;' '&#x0630;' '&#x0631;' '&#x0691;' '&#x0632;' '&#x0698;' '&#x0633;' '&#x0634;' '&#x0635;' '&#x0636;' '&#x0637;' '&#x0638;' '&#x0639;' '&#x063A;' '&#x0641;' '&#x0642;' '&#x06A9;' '&#x06AF;' '&#x0644;' '&#x0645;' '&#x0646;' '&#x06BA;' '&#x0648;' '&#x06C1;' '&#x06BE;' '&#x0621;' '&#x06CC;'; */
+}
+</bdo></code></p>
+
+<div id="out_urdu-alphabetic" class="browser_output"></div>
+<script>addExamples('urdu-alphabetic', 'ur', 'rtl')</script>
+</div>
+
+
+
+
+<aside class="note">
+<p>The urdu-alphabetic style is shown here as a fixed style.  According to <abbr title="Centre for Development of Advanced Computing">CDAC</abbr>, it is actually an unlimited style, where characters are doubled after the initial set is exhausted, eg. <span dir="rtl" lang="ur">ا ا</span>, <span dir="rtl" lang="ur">ب ب</span>, <span dir="rtl" lang="ur">ت ت</span>, etc. This can't be achieved using the standard 'alphabetic' algorithm. Furthermore, counters in this range do not join cursively, but are separated by a space. Until we have clearer evidence about how this works we list the style as fixed in length.</p>
+</aside>
 
 
 
@@ -2184,6 +2219,40 @@ suffix: ") ";
 </ol>
 </aside>
 </section>
+
+
+
+
+<section id="bopomofo-styles">
+<h2>注音符号</h2>
+
+<div class="csWrapper">
+<div class="copyMe" onclick="copyTemplate('zhuyin')"><img src="copy.svg" alt="Copy the style template." title="Copy the style template."></div>
+
+<p class="name" id="zhuyin"><a href="#zhuyin">zhuyin</a></p>
+
+<p class="counterstyle"><code><bdo dir="ltr">
+@counter-style zhuyin {
+  system: alphabetic;
+  symbols: "\3105" "\3106" "\3107" "\3108" "\3109" "\310A" "\310B" "\310C" "\310D" "\310E" "\310F" "\3110" "\3111" "\3112" "\3113" "\3114" "\3115" "\3116" "\3117" "\3118" "\3119" "\311A" "\311B" "\311C" "\311D" "\311E" "\311F" "\3120" "\3121" "\3122" "\3123" "\3124" "\3125" "\3126" "\3127" "\3128" "\3129";
+  /* ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦㄧㄨㄩ */
+  suffix: "、";
+}
+</bdo></code></p>
+
+<div id="out_zhuyin" class="browser_output"></div>
+<script>addExamples('zhuyin', 'zh', '')</script>
+</div>
+
+
+
+
+<p class="note">这里使用“zhuyin”而不是“bopomofo”，因为其排序遵循<a href="https://language.moe.gov.tw/001/Upload/files/site_content/M0001/juyin/html_ch/index.html">现代台湾国语顺序</a>，而不是其他可能的注音符号样式。其他注音符号样式可能会在以后引入。</p>
+</section>
+
+
+
+
 
 
 
@@ -6817,7 +6886,8 @@ additive-symbols: 1000 '\4D', 900 '\43\4D', 500 '\44', 400 '\43\44', 100 '\43', 
   <h2>修订记录</h2>
   <p>以下总结了自上次发布以来的实质性更改。</p>
   <ol>
-    <li>在cjk-heavenly-branch和cjk-heavenly-stem样式中添加了fallback:cjk-decimal（参阅<a href="https://github.com/w3c/csswg-drafts/issues/8975" target="_blank">github issue</a>）。</li>
+    <li>添加了注音符号样式。</li>
+    <li>添加了乌尔都语样式。</li>
 </ol>
     <p>有关更多详细信息，请参阅<a href="https://github.com/w3c/predefined-counter-styles/commits/gh-pages">GitHub提交记录</a>。</p>
 </section>
@@ -6830,7 +6900,7 @@ additive-symbols: 1000 '\4D', 900 '\43\4D', 500 '\44', 400 '\43\44', 100 '\43', 
 <section class="appendix">
 <h2>致谢</h2>
 <p>Ian Hickson and Tantek Çelı̇k provided the majority of early contributions to this content. Additional significant contributions were made by Tab Atkins.</p>
-<p>Additional thanks to the following: Mati Allouche for help with Hebrew; George Schizas for help with Greek; <code class="kw" translate="no">cjk-tally-mark</code> and <code class="kw" translate="no">cjk-stem-branch</code> were proposed by @c933103, and <code class="kw" translate="no">tally-mark</code> by Mike Bremford; Yaibeelen Mangang and Amir Aharoni proposed <code class="kw" translate="no">meetei</code>;  Prashant Verma and CDAC provided templates for 17 Indian styles, including  
+<p>Additional thanks to the following: Mati Allouche for help with Hebrew; George Schizas for help with Greek; <code class="kw" translate="no">cjk-tally-mark</code> and <code class="kw" translate="no">cjk-stem-branch</code> were proposed by @c933103, and <code class="kw" translate="no">tally-mark</code> by Mike Bremford; Yaibeelen Mangang and Amir Aharoni proposed <code class="kw" translate="no">meetei</code>;  Prashant Verma and <abbr title="Centre for Development of Advanced Computing">CDAC</abbr> provided templates for 17 Indian styles, including  
 [Arabic]
 <a href="#kashmiri"><code class="kw" translate="no">kashmiri</code></a>,
 [Bengali]
@@ -6860,6 +6930,8 @@ additive-symbols: 1000 '\4D', 900 '\43\4D', 500 '\44', 400 '\43\44', 100 '\43', 
 [Telugu]
 <a href="#telugu"><code class="kw" translate="no">telugu</code></a>;  
 Klemen Kogovšek proposed changing 'serbo-croatian' to just 'serbian'.
+Saadat Mateen for help with Urdu.
+@NFSL2001 for proposing 'zhuyin'.
 </p>
 </section>
 
